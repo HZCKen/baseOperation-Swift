@@ -326,6 +326,7 @@
 				184308CB2047C7D900950E01 /* HZCOperationGroup.swift in Sources */,
 				187A2F5C2048FBB000CFA10F /* HZCOperationItemLabel.swift in Sources */,
 				184308992047AEAC00950E01 /* ViewController.swift in Sources */,
+				186895F720575942006653FA /* HZCOperationControllerType.swift in Sources */,
 				184308972047AEAC00950E01 /* AppDelegate.swift in Sources */,
 				184308CD2047C7F400950E01 /* HZCOperationItem.swift in Sources */,
 				187A2F5A2048E5F300CFA10F /* HZCOperationItemArrow.swift in Sources */,

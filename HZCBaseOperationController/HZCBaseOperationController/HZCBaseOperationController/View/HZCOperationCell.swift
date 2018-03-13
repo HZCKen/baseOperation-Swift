@@ -21,6 +21,7 @@ class HZCOperationCell: UITableViewCell {
             if item.isMiddleText {
                 minddleLabel.isHidden = false
                 minddleLabel.text = item.title
+                minddleLabel.sizeToFit()
                 textLabel?.text = ""
                 label.text = ""
                 detailTextLabel?.text = ""
@@ -82,6 +83,7 @@ class HZCOperationCell: UITableViewCell {
         contentView.addSubview(topLineView)
         contentView.addSubview(buttomLineView)
         contentView.addSubview(upgradeImagView)
+        contentView.addSubview(minddleLabel)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -18,6 +18,11 @@ class HZCOperationGroup: NSObject {
         super.init()
     }
     
+    convenience init(items:[HZCOperationItem]) {
+        self.init()
+        self.items = items
+    }
+    
    class func operationGroupWithItems(items:[HZCOperationItem]) -> HZCOperationGroup {
         let group = HZCOperationGroup()
         group.items = items

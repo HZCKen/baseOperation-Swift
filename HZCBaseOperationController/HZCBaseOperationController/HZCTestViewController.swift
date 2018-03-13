@@ -52,7 +52,8 @@ class HZCTestViewController: HZCBaseOperationController {
         let item8 = HZCOperationItem(title: "8") {
             
         }
-        let group2 = HZCOperationGroup.operationGroupWithItems(items: [item8])
+        item8.isMiddleText = true
+        let group2 = HZCOperationGroup(items: [item8])
         group2.header = "group2"
         operationGroup.append(group2)
     }
