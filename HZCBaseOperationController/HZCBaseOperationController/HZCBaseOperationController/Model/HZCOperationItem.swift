@@ -8,11 +8,9 @@
 
 import UIKit
 
-protocol ViewControllerType {
-     func controller() -> UIViewController
-}
 
-class HZCOperationItem: NSObject {
+
+class HZCOperationItem {
     
     var title:String?
     var icon:String?
@@ -20,6 +18,7 @@ class HZCOperationItem: NSObject {
     var isNeedUpgrade:Bool = false
     var isMiddleText:Bool = false
     var operation :(() -> Void)?
+    var targetVCName:String?
     
     convenience init(title:String? , icon : String?) {
         self.init()

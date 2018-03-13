@@ -8,25 +8,13 @@
 
 import UIKit
 
-class HZCOperationGroup: NSObject {
-    var items:[HZCOperationItem]
+class HZCOperationGroup {
+    lazy var items = [HZCOperationItem]()
     var header:String?
     var footer:String?
-    
-    fileprivate override init() {
-        items = []
-        super.init()
-    }
-    
+
     convenience init(items:[HZCOperationItem]) {
         self.init()
         self.items = items
     }
-    
-   class func operationGroupWithItems(items:[HZCOperationItem]) -> HZCOperationGroup {
-        let group = HZCOperationGroup()
-        group.items = items
-        return group
-    }
-    
 }

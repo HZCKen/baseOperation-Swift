@@ -10,5 +10,14 @@ import UIKit
 
 class HZCOperationItemArrow: HZCOperationItem {
     
-
+    convenience init(title:String? , icon:String? , targetVCName:String?) {
+        self.init()
+        self.title = title
+        self.icon = icon
+        self.targetVCName = targetVCName
+    }
+    
+    convenience init(title:String? , targetVCName:String?) {
+        self.init(title: title, icon: nil, targetVCName: targetVCName)
+    }
 }

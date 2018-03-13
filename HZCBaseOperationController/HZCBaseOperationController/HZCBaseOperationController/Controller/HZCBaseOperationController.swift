@@ -81,7 +81,25 @@ extension HZCBaseOperationController : UITableViewDelegate {
             operation()
             return
         }
-    
+        
+        guard let targetVCName = item.targetVCName  else {
+            print("没有设置类名")
+            return
+        }
+        // 通过字典的键来取值,如果键名不存在,那么取出来的值有可能就为没值.所以通过字典取出的值的类型为AnyObject?
+        guard let clsName = Bundle.main.infoDictionary!["CFBundleExecutable"] else {
+            print("命名空间不存在")
+            return
+        }
+        // 2.通过命名空间和类名转换成类
+        let cls : AnyClass? = NSClassFromString((clsName as! String) + "." + targetVCName)
+        guard let clsType = cls as? UIViewController.Type else {
+            print("无法转换成UIViewController")
+            return
+        }
+        let targetVC = clsType.init()
+        navigationController?.pushViewController(targetVC, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -89,7 +107,7 @@ extension HZCBaseOperationController : UITableViewDelegate {
         if let footer = group.footer , footer.count > 0 {
             let label = UILabel()
             label.text = footer
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = UIFont.systemFont(ofSize: 15)
             label.textColor = UIColor.lightGray
             return label
         } else {
@@ -100,13 +118,9 @@ extension HZCBaseOperationController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let group = operationGroup[section]
         if let footer = group.footer , footer.count > 0 {
-            return 24
+            return 32
         } else {
-            if section == 0 {
-                return 16
-            } else {
-                return 1
-            }
+            return 23
         }
     }
     
@@ -116,7 +130,7 @@ extension HZCBaseOperationController : UITableViewDelegate {
         if let header = group.header , header.count > 0 {
             let label = UILabel()
             label.text = header
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = UIFont.systemFont(ofSize: 15)
             label.textColor = UIColor.lightGray
             return label
         } else {
@@ -128,10 +142,10 @@ extension HZCBaseOperationController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let group = operationGroup[section]
         if let header = group.header , header.count > 0 {
-            return 24
+            return 32
         } else {
             if section == 0 {
-                return 16
+                return 24
             } else {
                 return 1
             }

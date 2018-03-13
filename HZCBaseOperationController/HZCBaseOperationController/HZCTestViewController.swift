@@ -43,19 +43,31 @@ class HZCTestViewController: HZCBaseOperationController {
         
         item7.isOn = true
         
-        let group1 = HZCOperationGroup.operationGroupWithItems(items: [item1,item2,item4,item5,item7])
+        let group1 = HZCOperationGroup(items: [item1,item2,item4,item5,item7])
         operationGroup.append(group1)
         
         group1.header = "group1"
         group1.footer = "group1"
-        //        tableView.reloadData()
         let item8 = HZCOperationItem(title: "8") {
             
         }
         item8.isMiddleText = true
         let group2 = HZCOperationGroup(items: [item8])
         group2.header = "group2"
+        group2.footer = "group2"
         operationGroup.append(group2)
+        
+        
+        let item9 = HZCOperationItemArrow(title: "9", icon: nil)
+            item9.targetVCName = "ViewController"
+        
+        let item10 = HZCOperationItemArrow(title: "10", targetVCName: "HZCTestViewController")
+        
+        let group3 = HZCOperationGroup(items: [item9,item10])
+        operationGroup.append(group3)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
